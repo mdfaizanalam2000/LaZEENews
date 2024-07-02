@@ -2,16 +2,18 @@ import React from 'react'
 
 const NewsItem = (props) => {
     let { title, description, imgurl, newsurl, date } = props;
+    if (!imgurl) {
+        imgurl = "./no_image.jpg";
+    }
+
     return (
-        <div className='my-2'>
-            <div className="card">
-                <img src={imgurl} className="card-img-top" alt="error" />
-                <div className="card-body">
-                    <h5 className="card-title">{title}</h5>
-                    <p className="card-text">{description}...</p>
-                    <p className="card-text"><small className="text-muted">Last updated on {new Date(date).toLocaleString()}</small></p>
-                    <a href={newsurl} target="_blank" rel="noreferrer" className="btn btn-primary">Read More</a>
-                </div>
+        <div className="card">
+            <img src={imgurl} className="card-img-top" alt="news_image" />
+            <div className="card-body">
+                <h6 className="card-title">{title}</h6>
+                <p className="card-text">{description.length > 80 ? description.slice(0, 80) + "....." : description}</p>
+                <p className="card-text"><small className="text-muted">Published on {new Date(date).toLocaleString()}</small></p>
+                <a href={newsurl} target="_blank" rel="noreferrer" className="btn btn-primary">Read in detail</a>
             </div>
         </div>
     )

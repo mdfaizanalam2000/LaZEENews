@@ -1,0 +1,61 @@
+.app {
+    min-height: 90vh;
+}
+
+.card-img-top {
+    height: 40vh;
+}
+
+.row {
+    height: fit-content;
+}
+
+.card {
+    height: 100%;
+}
+
+.text-center {
+    margin-top: 6%;
+}
+
+#mobile-search {
+    margin-top: 10%;
+    display: none !important;
+    padding: 0 5%;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 2%;
+}
+
+@media only screen and (max-width:950px) {
+    .text-center {
+        font-size: medium;
+        margin-top: 5%;
+    }
+
+    #desktop-search {
+        display: none !important;
+    }
+
+    #mobile-search {
+        display: flex !important;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    .card-body p {
+        font-size: small;
+    }
+
+    .card-body h5 {
+        font-size: small;
+    }
+
+    #mobile-search {
+        margin-top: 20%;
+    }
+}

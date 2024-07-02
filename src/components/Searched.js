@@ -2,31 +2,25 @@ import React, { useEffect, useState } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner'
 
-const News = (props) => {
+const Searched = (props) => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const update = async () => {
-        let url;
+        let url = `https://gnews.io/api/v4/search?q=${encodeURI(props.category)}&apikey=b96948dc872709ab064f0987b5361479&lang=en&country=in`
         setLoading(true);
         props.setProgress(20);
-        if (props.category === "general") {
-            url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=b96948dc872709ab064f0987b5361479&lang=en&country=in`;
-        } else {
-            url = `https://gnews.io/api/v4/search?q=${props.category}&apikey=b96948dc872709ab064f0987b5361479&lang=en&country=in`
-        }
-        props.setProgress(50);
         let data = await fetch(url);
         // let data = await fetch("./sample_data.json");
-        props.setProgress(70);
+        props.setProgress(50);
         let parsedData = await data.json();
+        props.setProgress(70);
         setArticles(parsedData.articles);
         setLoading(false);
         props.setProgress(100);
     }
 
     useEffect(() => {
-        document.title = `LaZEE News-${props.category !== "general" ? props.category : "Home"}`;
         update();
         //eslint-disable-next-line
     }, [])
@@ -48,4 +42,4 @@ const News = (props) => {
     )
 }
 
-export default News;
+export default Searched;
