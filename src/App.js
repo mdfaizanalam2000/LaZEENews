@@ -27,6 +27,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<News setProgress={setProgress} key="general" category="general" />} />
           <Route exact path="/entertainment" element={<News setProgress={setProgress} key="entertainment" category="entertainment" />} />
+          <Route exact path="/education" element={<News setProgress={setProgress} key="education" category="education" />} />
           <Route exact path="/business" element={<News setProgress={setProgress} key="business" category="business" />} />
           <Route exact path="/health" element={<News setProgress={setProgress} key="health" category="health" />} />
           <Route exact path="/science" element={<News setProgress={setProgress} key="science" category="science" />} />
@@ -34,7 +35,7 @@ const App = () => {
           <Route exact path="/technology" element={<News setProgress={setProgress} key="technology" category="technology" />} />
           <Route exact path="/politics" element={<News setProgress={setProgress} key="politics" category="politics" />} />
           <Route exact path="/international" element={<News setProgress={setProgress} key="international" category="international" />} />
-          <Route exact path="/search/:search" element={<Searched setProgress={setProgress} key={search} category={search} />} />
+          <Route exact path="/search/:search" element={<Searched setProgress={setProgress} key={search} category={search.trim()} />} />
         </Routes>
       </Router>
       <Footer />

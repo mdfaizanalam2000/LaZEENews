@@ -20,13 +20,18 @@ const News = (props) => {
         // let data = await fetch("./sample_data.json");
         props.setProgress(70);
         let parsedData = await data.json();
+        if (parsedData.errors) {
+            setLoading(false);
+            props.setProgress(100);
+            return;
+        }
         setArticles(parsedData.articles);
         setLoading(false);
         props.setProgress(100);
     }
 
     useEffect(() => {
-        document.title = `LaZEE News-${props.category !== "general" ? props.category : "Home"}`;
+        document.title = `LaZEE News- ${props.category !== "general" ? props.category : "Home"}`;
         update();
         //eslint-disable-next-line
     }, [])
