@@ -1,3 +1,8 @@
+nav img {
+    height: 3rem;
+    border-radius: 10%;
+}
+
 .app {
     min-height: 90vh;
 }
@@ -15,7 +20,7 @@
 }
 
 .text-center {
-    margin-top: 6%;
+    margin-top: 8%;
 }
 
 #mobile-search {
@@ -31,10 +36,10 @@ footer {
     padding: 2%;
 }
 
-@media only screen and (max-width:950px) {
+@media only screen and (max-width:1000px) {
     .text-center {
         font-size: medium;
-        margin-top: 5%;
+        margin-top: 3%;
     }
 
     #desktop-search {
@@ -46,7 +51,7 @@ footer {
     }
 }
 
-@media only screen and (max-width:650px) {
+@media only screen and (max-width:750px) {
     .card-body p {
         font-size: small;
     }
@@ -56,6 +61,18 @@ footer {
     }
 
     #mobile-search {
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    #mobile-search {
         margin-top: 20%;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    #mobile-search {
+        margin-top: 25%;
     }
 }

@@ -7,13 +7,19 @@ const Searched = (props) => {
     const [loading, setLoading] = useState(false);
 
     const update = async () => {
-        let url = `https://gnews.io/api/v4/search?q=${encodeURI(props.category)}&apikey=b96948dc872709ab064f0987b5361479&lang=en&country=in`
+        let url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(props.category)}&apikey=b96948dc872709ab064f0987b5361479&lang=en&country=in`
         setLoading(true);
         props.setProgress(20);
         let data = await fetch(url);
         // let data = await fetch("./sample_data.json");
         props.setProgress(50);
         let parsedData = await data.json();
+        if (parsedData.errors) {
+            setLoading(false);
+            props.setProgress(100);
+            alert("Avoid using special characters!");
+            return;
+        }
         props.setProgress(70);
         setArticles(parsedData.articles);
         setLoading(false);
