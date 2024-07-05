@@ -13,6 +13,7 @@ const NewsItem = (props) => {
                 <h6 className="card-title">{title}</h6>
                 <p className="card-text">{description.length > 80 ? description.slice(0, 80) + "....." : description}</p>
                 <p className="card-text"><small className="text-muted">Published on {new Date(date).toLocaleString()}</small></p>
+                <p className="card-text"><small className="text-muted">Source: <span className="badge text-bg-warning">{props.source}</span></small></p>
                 <a href={newsurl} target="_blank" rel="noreferrer" className="btn btn-primary">Read in detail</a>
             </div>
         </div>
