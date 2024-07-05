@@ -39,7 +39,7 @@ const Searched = (props) => {
                 <div className="row">
                     {!loading && (articles.length > 0 ? articles.map((element) => {
                         return <div className="col-md-4 my-2" key={element.url}>
-                            <NewsItem title={element.title} description={element.description} imgurl={element.image} newsurl={element.url} date={element.publishedAt} />
+                            <NewsItem title={element.title} description={element.description} imgurl={element.image} newsurl={element.url} date={element.publishedAt} source={element.source.name} />
                         </div>
                     }) : <div className='text-center'><b>No news found!</b></div>)}
                 </div>
