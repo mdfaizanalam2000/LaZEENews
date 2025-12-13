@@ -7,16 +7,9 @@ const News = (props) => {
     const [loading, setLoading] = useState(false);
 
     const update = async () => {
-        let url;
         setLoading(true);
         props.setProgress(20);
-        if (props.category === "general") {
-            url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=b96948dc872709ab064f0987b5361479&lang=en&country=in`;
-        } else {
-            url = `https://gnews.io/api/v4/search?q=${props.category}&apikey=b96948dc872709ab064f0987b5361479&lang=en&country=in`
-        }
-        props.setProgress(50);
-        let data = await fetch(url);
+        let data = await fetch(`/.netlify/functions/news?category=${props.category}`);
         // let data = await fetch("./sample_data.json");
         props.setProgress(70);
         let parsedData = await data.json();
